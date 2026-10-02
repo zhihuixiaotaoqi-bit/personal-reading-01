@@ -1,0 +1,794 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<title>你的人生，什么时候开始真正发力？｜个人解读 01</title>
+<style>
+:root{
+  --bg:#f7f2e8;
+  --paper:#fffdf8;
+  --ink:#25231f;
+  --sub:#756f65;
+  --line:#e7dfd2;
+  --accent:#7f352d;
+  --accent2:#bd8d56;
+  --soft:#efe4d5;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.6;
+}
+button{font:inherit}
+.wrap{
+  width:min(100%,520px);
+  min-height:100vh;
+  margin:auto;
+  padding:18px 16px 42px;
+}
+.card{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:24px 20px;
+  box-shadow:0 10px 30px rgba(70,55,35,.06);
+}
+.brand{
+  font-size:12px;
+  color:var(--sub);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.hero{
+  min-height:calc(100vh - 36px);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.hero h1{
+  margin:10px 0 18px;
+  font-size:34px;
+  line-height:1.18;
+  letter-spacing:-.02em;
+}
+.hero p{font-size:16px;color:#4f4a43;margin:0 0 18px}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 26px}
+.tag{
+  background:var(--soft);
+  padding:7px 10px;
+  border-radius:999px;
+  font-size:12px;
+  color:#5a5148;
+}
+.btn{
+  width:100%;
+  border:0;
+  border-radius:14px;
+  padding:15px 16px;
+  background:var(--ink);
+  color:#fff;
+  font-weight:700;
+  cursor:pointer;
+}
+.btn.secondary{
+  background:transparent;
+  color:var(--ink);
+  border:1px solid var(--line);
+}
+.note{font-size:12px;color:var(--sub);margin-top:14px}
+.hidden{display:none!important}
+
+.progressbox{margin-bottom:14px}
+.progressrow{display:flex;justify-content:space-between;font-size:12px;color:var(--sub);margin-bottom:7px}
+.progress{
+  height:7px;background:#e9e1d5;border-radius:999px;overflow:hidden
+}
+.progress>i{display:block;height:100%;width:0;background:var(--accent);transition:.25s}
+.qcard h2{
+  font-size:22px;
+  line-height:1.45;
+  margin:6px 0 18px;
+}
+.option{
+  display:block;
+  width:100%;
+  text-align:left;
+  padding:14px 14px;
+  margin:10px 0;
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:14px;
+  color:var(--ink);
+  cursor:pointer;
+  transition:.18s;
+}
+.option:hover{border-color:#b9aa95;transform:translateY(-1px)}
+.option b{
+  display:inline-flex;
+  width:24px;height:24px;border-radius:50%;
+  background:#f1e9dd;
+  align-items:center;justify-content:center;
+  margin-right:8px;font-size:12px
+}
+
+.result-head{
+  text-align:center;
+  padding:8px 0 10px;
+}
+.result-head .kicker{font-size:12px;color:var(--sub);letter-spacing:.16em}
+.result-head h1{font-size:32px;margin:5px 0 2px}
+.result-head .sub{color:var(--accent);font-weight:700}
+.quote{
+  margin:20px 0;
+  padding:18px;
+  border-left:4px solid var(--accent);
+  background:#f7efe7;
+  border-radius:10px;
+  font-size:18px;
+  font-weight:700;
+}
+.section{margin-top:24px}
+.section h3{font-size:18px;margin:0 0 12px}
+.metric{margin:10px 0}
+.metric-top{display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px}
+.bar{height:9px;background:#eee5da;border-radius:999px;overflow:hidden}
+.bar>i{height:100%;display:block;background:var(--accent2);border-radius:999px}
+.dyn{
+  display:grid;grid-template-columns:1fr auto;
+  gap:6px 12px;
+  padding:12px 0;
+  border-bottom:1px solid var(--line);
+}
+.dyn small{grid-column:1/3;color:var(--sub)}
+.timeline{
+  position:relative;
+  padding-left:22px;
+}
+.timeline:before{
+  content:"";position:absolute;left:5px;top:7px;bottom:8px;width:2px;background:#dfd1c0
+}
+.time-item{position:relative;margin:0 0 18px}
+.time-item:before{
+  content:"";position:absolute;left:-20px;top:7px;width:10px;height:10px;
+  border-radius:50%;background:var(--accent)
+}
+.time-item b{display:block}
+.time-item span{color:var(--sub);font-size:14px}
+.switch{
+  background:#27231f;color:white;border-radius:18px;padding:20px;margin-top:18px
+}
+.switch .label{font-size:12px;opacity:.7;letter-spacing:.12em}
+.switch h3{font-size:24px;line-height:1.35;margin:6px 0 8px}
+.switch p{opacity:.86;margin:0}
+.upsell{
+  margin-top:28px;
+  padding:20px;
+  border-radius:18px;
+  background:#efe4d5;
+}
+.upsell .mini{font-size:12px;color:#6f6254}
+.upsell h3{font-size:22px;line-height:1.35;margin:8px 0}
+.share-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+canvas{display:none}
+.footer{font-size:11px;color:#8b8277;text-align:center;margin:24px 0 0}
+@media(max-width:380px){.hero h1{font-size:30px}.result-head h1{font-size:29px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <section id="screen-access" class="hero">
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><div class="brand">个人解读 · 01</div><div id="accessBadge" class="tag" style="margin:0">已解锁</div></div>
+      <h1>输入你的<br>个人解读码</h1>
+      <p>购买后会收到一组访问码。输入后即可进入完整内容。</p>
+      <div style="margin:18px 0 10px">
+        <input id="accessCodeInput" maxlength="9" autocomplete="off" autocapitalize="characters"
+          placeholder="例如：ABCD-EFGH"
+          style="width:100%;padding:15px 14px;border:1px solid var(--line);border-radius:14px;background:#fff;font:inherit;font-size:18px;letter-spacing:.08em;text-transform:uppercase;outline:none"/>
+      </div>
+      <div id="accessError" style="min-height:22px;color:#a13f35;font-size:13px;margin:4px 0 10px"></div>
+      <button class="btn" onclick="verifyAccessCode()">验证并进入 →</button>
+      <div class="note">访问资格会保存在当前浏览器中。<br>体验码：DEMO-2026</div>
+    </div>
+  </section>
+
+  <section id="screen-home" class="hidden" class="hero">
+    <div class="card">
+      <div class="brand">个人解读 · 01</div>
+      <h1>你的人生，<br>什么时候开始真正发力？</h1>
+      <p>有的人20岁就找到了自己的位置。<br>有的人前半程一直试错，30岁以后反而越来越顺。</p>
+      <div class="tags">
+        <span class="tag">早开型</span>
+        <span class="tag">渐入佳境型</span>
+        <span class="tag">中途翻盘型</span>
+        <span class="tag">大器晚成型</span>
+        <span class="tag">多次重启型</span>
+      </div>
+      <button class="btn" onclick="startQuiz()">看看我是哪一种 →</button>
+      <div class="note">24道人生情境题｜约3分钟<br>用于自我探索与娱乐，不预测具体命运；传统十神仅作为文化意象。</div>
+    </div>
+  </section>
+
+  <section id="screen-quiz" class="hidden">
+    <div class="progressbox">
+      <div class="progressrow"><span id="qIndex">第 1 题</span><span>共 24 题</span></div>
+      <div class="progress"><i id="progressBar"></i></div>
+    </div>
+    <div class="card qcard">
+      <div class="brand">个人解读 · 01</div>
+      <h2 id="qText"></h2>
+      <div id="options"></div>
+    </div>
+  </section>
+
+  <section id="screen-result" class="hidden">
+    <div class="card">
+      <div class="result-head">
+        <div class="kicker">你的个人解读</div>
+        <h1 id="resultTitle"></h1>
+        <div class="sub" id="resultSub"></div>
+      </div>
+
+      <div class="quote" id="resultQuote"></div>
+
+      <div class="section">
+        <h3>你的人生节奏倾向</h3><div class="note" style="margin-top:-6px;margin-bottom:10px">以下为独立倾向指数，各项互不排斥，因此无需相加为100。</div>
+        <div id="metrics"></div>
+      </div>
+
+      <div class="section">
+        <h3>你的五类动力结构</h3><div class="note" style="margin-top:-6px;margin-bottom:10px">以下为五类动力的构成占比，合计100%。</div>
+        <div id="dynamics"></div>
+        <div class="note">这里借用传统十神的文化意象描述行为倾向，不等同于你的真实八字结构。</div>
+      </div>
+
+      <div class="section">
+        <h3>你更接近的命理意象</h3>
+        <div id="archetype"></div>
+      </div>
+
+      <div class="section">
+        <h3>你的发力节奏</h3>
+        <div class="timeline" id="timeline"></div>
+      </div>
+
+      <div class="switch">
+        <div class="label">你的翻盘开关</div>
+        <h3 id="switchTitle"></h3>
+        <p id="switchText"></p>
+      </div>
+
+      <div class="share-actions">
+        <button class="btn secondary" onclick="restart()">重新做一次</button>
+        <button class="btn" onclick="makeCard()">生成结果卡</button>
+      </div>
+
+      <div class="footer">本内容用于自我探索与娱乐，不构成职业、财务、医疗或其他专业建议。</div>
+    </div>
+  </section>
+</div>
+
+<canvas id="shareCanvas" width="1080" height="1440"></canvas>
+
+<script>
+
+const VALID_CODE_HASHES = new Set(["4e775cb4fae09efda9407bdbf7d838bf67fce8e44ebaffd03847bb50062c36fb", "20f5d60796787526624c2e8a9a2d05f96134a2a8ff2585f37d644b1e08c54de8", "8067fbe4253a82f5e0496a4521518318dc9d6f21dd779ab89a9ec29a9ec7b5ae", "4577ddf2da647dfc4178707b2c36d61e4f7a992519de2eca5b404d8d3703e3e8", "4067ed0fb09c6992b2ab0c692860acb1226741266ee70d97c7927baa5295b25d", "36979dda36dbc0869f7d62b936ceb835d2bf1f50cd2866d237be3a041631cdc0", "d16fca0868e452e74ff9087849dc7c82d38ff63a8444de637eb6990b42816a18", "d389892bc32c5fac3c4a414cf9e52c1da33f633dd1969a9fd126edc9e187c418", "06ef919e809a78f953e22891949ae273d446a30c5ce98a59c6fbd0762590b4a5", "92b4c54d96e8a27bf66badd11e28fa23cffb51d7237330261e489e1bfaa5b00d", "3fa9c2910a1c6f1e3b081f95db73daf3e23a06ddd8f41229aebe93757e5ea21f", "2e4d16d154e14a2a4d2b0d3b696b45326814f4d6d88fa56c8344648c3537c054", "eb4eae866f917d865b170d58044afd97199d6844156c164aef0abc6cf5c48e93", "a7ee81cdf3e6dfd8402cf4215e3b9289010e6074bfb3b3e6739d3faa511a75b9", "9229a38086d1793ae8b5058dc134ee597d9c2f81aa03ee921671895a1ea4ae0e", "ab976a2ca36e95c4d2c286f3769b8d278a84e8cbf3571396a4df383ee799b23d", "0c6f7012da6b38f9e4c0985b6d016f78a973239db44793d97270ac795d94196d", "f7bcbec307a0487a93ece0c4f6cf66791ebd5166cd783e6604d8564b16dd7e80", "0cded21db8433035013d061b5baf06bf2fe8b9053258539ba4e6633f69a7b0a9", "8e5afe2d705a4b40db0e85214501ed4921be24c3d2db9a9a7c428171520373b2", "4b6cc0d3a2450c3e2103c63878a6bbdb5ed01e045d1bb3c940d0efcf700ba519", "3ae78663171b2fec2050c8036e95d82b41710729355bc2f9500e85fa1f4e9499", "dcd27c6c0634a656df9f62c4805eabe905c0c49192534b99a99d6ff20e7251af", "b47908fcc468519e73022c058e507332d9b6fffa4405fb84c4e640cc931a9add", "86a447ca762f77adcbfd9924d5c115a20201c3aa89daa645db477ebfb3fbf13d", "a8fb0277dc98283e0ae436164bbd8c7fadc92b14769c9d070277b14660832ffd", "070a367449da82ceba99e8afad64a201e35e6dc718a09bc31195b074dcb310c1", "e7319dcaf070fd650ee11b82d1639c783200a391a5b892051ce32112a1661439", "1cdfd0a9fcd3864bc889d89c13947fef849f14d8364b599630f4930bc3036768", "42ff197402f95ae2067a704428034bbdc4a64177c4ae4ea3405c879fe8a55c69", "1ede8c8f3338a3d1f2d381e25de9cf0fb0bf7a067bfc95710b2df79c6b6e443d", "23b4309375ef9f669b7cfc505f4711ef321399a55c33f9d3896a0718db61072f", "e841716722e1b9b86a25499e6e71d27d4396fac42476cacbaa7aeb12bdee6375", "97d0e58534c1be4aa280cb09aabcbd9da3046b185bca5c526e487d647557a47b", "566eb93631c5b6ac2ec06745249651af68c4d51ff40332210b51649cec7c6e30", "9e263658ed1d131f514195281a78697c3fdc7d64cd8f53e5f303cfc66e47c137", "18b07067d0e05c6c543b54e9ed031573abcb45d8e10bef3f1a83951c726d7cf4", "f9c44d95fc6d406d15fb2db11ea8cca359971a6acf323521b363f0e666e671cd", "cfa6fe95aaef8ad82084951d04b05191163e886cf4fe730982a3d3dc749777f9", "c19def5cce65a5a2a7bb2c88940279e1de72f8e79c42e16dbbabc56d3d167c7b", "a78bd58ebf9e9106fe836d0aef671d363ebb8ecceccb2acb4c3062eecfcfe59a", "26432ab2e43f3bf2eab65abc9d38a657036c5e1ea80c4b683dba1b08e989273d", "2c7e946af23fbb3b3eafbd22f9cfa577c1e3033acae38924f2a3288f20897fb5", "a94fdea4ce2004abc87bbe68b2fd8ddb1e5e6b11e4bc6254f823b731bea0c332", "71e1f20ae9b0ea2b7f19b31499f28a56e165e38282215e9799e01f61084ef050", "59b8df45119bc4c6dd225e940c8c69194f80872507433891284faa26c86bf4f5", "086fbb80368d67f7c42f0ef0d3a43c75483693696fd2166f63bc2b2a03cd53cb", "1262c455226ca824c758f7d4da9ef46d26b786af77dc1ee2923a83fd3940c269", "3d4d09007948d39ad149d4ea18d5d0d752e801a59317cb93ec9ca720b8797c89", "26f579376df472b042333375aa4dc17ec5daea3633876464f8157b8f9aeae3d2", "c34cd683406d4850a73c943dfa75f0d0f686fae3fbb3a2216385433afcb89d5d", "9ec51b243c0c233a863f66aaf82efd747ce4f3aa69b0bba063f8b682aebd3f4d", "861e3ac057135550386b2987f1c67033da61ebe9143a079fe4bdc6eac69fc171", "17393b721df7c23505d0d8fd744140dd352e54bb232920e44cea14ca172952ae", "568027b5f211dcff4d2284f5c9d81dfad033bad9b9e7f8d427f14ead82b88208", "9c7ad39dbecf6af79012673aed97b636c75256cbf6f6a5ad1c239e613c9aab95", "61cadf16d572a452f6bd8055b7f6548b6a60422bf629e6c3befa470d01a4c21b", "44de039f45b9d7f8109681059fbbbaca8ae76b4e56983cc50eed9f707d8e63b2", "30b3fee20bef66ccc028828d3e59a09631b5c721aa7f4e4bc642ce492897ac5d", "2398ac12900ef4543c44bbf1550b57b597b5954d599cf8ee2bcafcad6073323d", "fa17edb05d7aafd11e31dc3d8399056ebf2ed923fcfaa2caba23d3ef7b1fcf24", "803086fca01f031817eb85ef49a4220d2f67f381371b108bed44e0146089f818", "7408b711297e65bed9020ad5bf9aeed0e40f74b2a6ffb323e1184410df72b679", "c085a5a935150788c84d24c8dfa62e74d304c3bcbf6848d68b77244e1be4d60e", "7a7834d04dda261650be449965e1c359df67fac2937e44101dbbb01fa4387e7a", "eaa617c308d9b4f49595d062579a7be04a934a7b83e37e9c3cee3f8a9420e695", "5fabb79d51916d2bd36971133f4b556c6f5e4eb10fd0baf312edf9574cb717a0", "8720a030017c29de16c8986e06c8aba91a835442066767c629de418b95b8f561", "742de9872a487c77f5948fec1015e5067fc3a168768ba08738f67cbe37b76cb2", "6d24a62125bef0138e7ce7ad70a7ed436f8ad2ab6c49b8f21f9ba283e6b52a05", "799b99a5205837fcee898f0d76a19a3e9089d3533227fa38e9531161b32ce835", "ac509cc56fe9245fc8ef6fa0e08d94d22510dfea64c252c7d8e99988555341ac", "8e3d71a48cdbcead5d76bb3a5a0a92a64ee4e86feb6820ac6298b5ec1dded14c", "e6964996141c4de3811aea1d2a926b123efe40c162951a158f3500b6efffd188", "7cb86ce9c6e414afb8f95db97d10923888f8bb4293e4a6a096e2b80b326e3d0e", "cacbbf53cd896cd4218530d50857627764b3346a13cf0fd536b39f6815fd24bc", "75669aeec7cef7301e78b5865439fb40b78b082b80681058930fbdbf97608360", "c96c0ec2953772f1858c79966f5e77f5f67c67ece6c6def1ace194ddb68f27d1", "1effdc4d00d9f6eea92c267f431f284fb5cedb38d73ffa199274961d0cda84ee", "d12664cf5820db58ea92f766a57714e62b1c63e5b803c6f44cf947c812ceebf0", "37c7180172438bb5429b15cb6c08161da820bcec2ab2310bc2e0ab411556a472", "823217a401c08b26814100de0e2c269217cad59bab9a8fcd499ee44db9816e71", "cf43d4dbeb5e9ce76ce5e685407fe5150a73034889ed8dc656c21a1081a9df90", "cbbcac2854a385a4a24ad976c9b731d7458a3d6377b847748abf54642fe364f2", "5a6301eed3754dc51c06199dd1d763f1cc43847624cbd2cec5f6a7a55491659a", "42cd32696e1ea2e362a619085cdd60430f18f23b15f2c2325bb1dfe517b3dae5", "0865ba80b6a94902b6eabddbb1e8a775341584a203d8cff3cf89875234640f6d", "1588720e2e6e559625e0c0d576d59b4d221c85fd012a4b2e482571266ad73093", "7b24037d9bef61f3999400b02e2ae0f4c765421dae66edd558860810d4bf9126", "3f127d0083aaf9ec792d6918cd81121305986fb13a011ffecf94678a5d186e26", "232de5d9ae573714cd5812d1d6dbaa03246062ea2e81449ef2b222915b32d755", "9e0d69eea4954c1f0607919a787f34a545f780bc837e61aa7b557aa1fb9b10d9", "7527ec7b01578cacac23d8a52900180f4076e01d25a10f5bac9cd5a044fe8da8", "6eed774111e6eabeb735c7170b3cfcf2e9ea17376e6beacd06734492d8f2ad3c", "55512cebf66d44b1542b729752d71f5519783928aa68aa06e7cfd58edffffbb4", "2774ede0a334c4fd06863968529b5cd28006606fdb8dce403bd736f6046b6aff", "8c6182331f8b57ed0af6e4a19edb9faefc6a37e920728abe2b43b927dfd628fa", "7353721c5f186c00bda1c555a8b77821d5265b269cd5b00e560685e5503e50c3", "a2b70eb542fc9a4161448e45a9113bd4f9a296d3d48752c2c909a1bf4325473c", "f9c388831638b359f555b61c6d22c922b9a26b129c4a101ca3b12dea1c14451a", "481066df76964b86d4c20f9311600706d26a32dd493b41eac16c051972583840"]);
+
+async function sha256Hex(str){
+  const data = new TextEncoder().encode(str);
+  const buf = await crypto.subtle.digest("SHA-256", data);
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,"0")).join("");
+}
+
+function normalizeCode(v){
+  return (v||"").trim().toUpperCase().replace(/\s+/g,"");
+}
+
+async function verifyAccessCode(){
+  const input = document.getElementById("accessCodeInput");
+  const err = document.getElementById("accessError");
+  const code = normalizeCode(input.value);
+  err.textContent = "";
+  if(!code){
+    err.textContent = "请输入访问码。";
+    return;
+  }
+  try{
+    const h = await sha256Hex(code);
+    if(!VALID_CODE_HASHES.has(h)){
+      err.textContent = "访问码不正确，请检查后再试。";
+      return;
+    }
+    localStorage.setItem("jd01_access_granted","1");
+    localStorage.setItem("jd01_access_hash",h);
+    localStorage.setItem("jd01_access_time",String(Date.now()));
+    openUnlockedHome();
+  }catch(e){
+    err.textContent = "当前浏览器无法完成验证，请换用较新的浏览器。";
+  }
+}
+
+function openUnlockedHome(){
+  document.getElementById("screen-access").classList.add("hidden");
+  document.getElementById("screen-home").classList.remove("hidden");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+document.addEventListener("DOMContentLoaded",()=>{
+  const input=document.getElementById("accessCodeInput");
+  if(input){
+    input.addEventListener("input",()=>{
+      let v=input.value.toUpperCase().replace(/[^A-Z0-9]/g,"");
+      if(v.length>4) v=v.slice(0,4)+"-"+v.slice(4,8);
+      input.value=v;
+    });
+    input.addEventListener("keydown",(e)=>{ if(e.key==="Enter") verifyAccessCode(); });
+  }
+  if(localStorage.getItem("jd01_access_granted")==="1"){
+    openUnlockedHome();
+  }
+});
+
+const questions = [
+{
+q:"如果你发现自己现在走的路越来越不适合，你通常会：",
+o:[
+["马上开始找下一条路",{bi:2,shi:1,reboot:2,pivot:1}],
+["先偷偷准备，时机成熟再走",{yin:2,cai:1,late:1,pivot:2}],
+["再坚持一下，也许还能调整",{guan:1,yin:2,gradual:2,late:1}],
+["除非发生大事，否则不会轻易换",{guan:2,yin:1,gradual:2}]
+]},
+{
+q:"你更容易在哪种情况下突然成长很多？",
+o:[
+["得到一个很好的机会",{cai:2,shi:1,early:2}],
+["遇到很大的压力",{guan:2,bi:1,pivot:2}],
+["自己突然想明白一件事",{yin:2,bi:1,reboot:2}],
+["长时间积累以后自然发生",{yin:2,cai:1,late:2,gradual:1}]
+]},
+{
+q:"你更羡慕哪一种人生？",
+o:[
+["年轻时就迅速做出成绩",{cai:2,guan:1,early:2}],
+["一路稳定，越来越好",{yin:1,guan:2,gradual:2}],
+["前面普通，后来突然翻盘",{bi:2,guan:1,pivot:2}],
+["经历很多变化，最后活成自己",{shi:2,bi:1,reboot:2}]
+]},
+{
+q:"面对一个很感兴趣、但完全陌生的新方向，你通常会：",
+o:[
+["先做再说",{shi:2,bi:1,early:1,reboot:1}],
+["研究透了再开始",{yin:2,late:2}],
+["找懂的人带我入门",{yin:1,guan:1,gradual:2}],
+["看它有没有现实价值再决定",{cai:2,guan:1,early:1}]
+]},
+{
+q:"别人对你的评价更可能是哪一句？",
+o:[
+["你行动力真的很强",{bi:2,cai:1,early:2}],
+["你看起来慢，但后劲很大",{yin:2,cai:1,late:2}],
+["你好像总能突然换一个活法",{shi:2,bi:1,reboot:2}],
+["你一直都挺稳的",{guan:2,yin:1,gradual:2}]
+]},
+{
+q:"如果突然失去一份稳定工作，你的第一反应更接近：",
+o:[
+["终于可以换一种活法",{bi:2,shi:1,reboot:2}],
+["先把生活稳住再说",{cai:2,guan:1,gradual:2}],
+["很焦虑，但会逼自己快速成长",{guan:2,bi:1,pivot:2}],
+["重新学习一项能长期使用的能力",{yin:2,shi:1,late:2}]
+]},
+{
+q:"你过去真正让自己发生变化的事情，通常来自：",
+o:[
+["一次机会",{cai:2,early:2}],
+["一次失败",{guan:1,bi:2,pivot:2}],
+["一个人",{yin:1,cai:1,gradual:1,pivot:1}],
+["很长时间的积累",{yin:2,late:2}]
+]},
+{
+q:"你对“成功”的理解更接近：",
+o:[
+["越早做出来越好",{cai:2,guan:1,early:2}],
+["找到适合自己的节奏",{yin:2,shi:1,gradual:2}],
+["某一次真正翻过去",{bi:2,guan:1,pivot:2}],
+["越往后越有选择权",{yin:1,cai:2,late:2}]
+]},
+{
+q:"面对一个回报很高、但不确定性也很高的机会，你会：",
+o:[
+["先抢到再说",{cai:2,bi:1,early:2}],
+["小成本试一下",{shi:2,cai:1,reboot:1,early:1}],
+["先看别人怎么做",{yin:2,gradual:2}],
+["风险太高就不碰",{guan:2,late:1,gradual:1}]
+]},
+{
+q:"你做一件事最容易坚持下去的原因是：",
+o:[
+["能不断看到成果",{cai:2,early:1,gradual:1}],
+["有人认可或给我反馈",{shi:1,guan:1,early:1}],
+["我知道它长期有用",{yin:2,late:2}],
+["越难越想证明自己",{bi:2,guan:1,pivot:2}]
+]},
+{
+q:"当你和大多数人的选择不一样时，你通常会：",
+o:[
+["坚持自己的判断",{bi:2,reboot:2}],
+["先听意见，再决定",{yin:2,gradual:2}],
+["如果结果更好，我不介意不一样",{cai:2,early:1,pivot:1}],
+["尽量选择风险更小的那条",{guan:2,late:1,gradual:1}]
+]},
+{
+q:"你最容易对哪种状态产生焦虑？",
+o:[
+["明明有机会却不敢抓",{cai:2,early:2}],
+["一直做重复的事，没有成长",{shi:2,reboot:2}],
+["准备还不够，却被迫上场",{yin:2,late:2}],
+["失去秩序、没有清晰标准",{guan:2,gradual:2}]
+]},
+{
+q:"如果一个方向三个月都看不到结果，你更可能：",
+o:[
+["马上换",{bi:2,early:1,reboot:2}],
+["调整方法继续做",{shi:2,gradual:2}],
+["再给它更长时间",{yin:2,late:2}],
+["先看投入产出再决定",{cai:2,guan:1,pivot:1}]
+]},
+{
+q:"你更希望别人因为什么记住你？",
+o:[
+["我很有想法",{shi:2,early:1,reboot:1}],
+["我很靠谱",{guan:2,gradual:2}],
+["我能把事情做成",{cai:2,early:2}],
+["我经历很多，但最后越来越强",{yin:1,bi:1,late:1,pivot:1}]
+]},
+{
+q:"如果人生突然多出一年空档期，你最想：",
+o:[
+["做一个一直想做的项目",{shi:2,bi:1,reboot:2}],
+["考证、学习、补能力",{yin:2,late:2}],
+["去赚钱或尝试生意",{cai:2,early:2}],
+["进入一个更好的平台",{guan:2,gradual:2}]
+]},
+{
+q:"你在重要决定上更像哪一种？",
+o:[
+["直觉到了就会行动",{bi:2,early:2}],
+["先搜集足够信息",{yin:2,late:2}],
+["看哪个选择更有回报",{cai:2,pivot:1,early:1}],
+["选择更可控、更稳定的",{guan:2,gradual:2}]
+]},
+{
+q:"别人给你一个清晰但严格的规则，你通常会：",
+o:[
+["有规则反而更能发挥",{guan:2,gradual:2}],
+["先遵守，熟了以后再优化",{yin:1,cai:1,gradual:1,late:1}],
+["总想改成更适合自己的方法",{shi:2,reboot:2}],
+["如果规则没道理，我会直接突破",{bi:2,pivot:2}]
+]},
+{
+q:"你真正擅长的东西更像是：",
+o:[
+["很早就显现出来",{cai:1,shi:1,early:2}],
+["做久了才越来越明显",{yin:2,late:2}],
+["被逼到某个关口才激发出来",{guan:2,pivot:2}],
+["每隔几年就会换一种优势",{bi:1,shi:1,reboot:2}]
+]},
+{
+q:"如果你现在的人生没有大问题，但也没有太多期待，你会：",
+o:[
+["主动制造变化",{bi:2,reboot:2}],
+["先培养一个新的出口",{shi:2,pivot:1,reboot:1}],
+["保持稳定，同时慢慢升级",{yin:1,guan:1,gradual:2}],
+["只要现实回报不错，就可以接受",{cai:2,gradual:1}]
+]},
+{
+q:"你更相信哪一句话？",
+o:[
+["先占位置，再慢慢变强",{cai:2,early:2}],
+["准备越充分，选择越自由",{yin:2,late:2}],
+["压力会逼出一个人的上限",{guan:2,pivot:2}],
+["人可以随时重新开始",{bi:2,shi:1,reboot:2}]
+]},
+{
+q:"在团队里，你更自然地扮演：",
+o:[
+["提出新点子的人",{shi:2,reboot:1,early:1}],
+["梳理信息、补漏洞的人",{yin:2,late:1,gradual:1}],
+["推动结果、抓资源的人",{cai:2,early:2}],
+["扛责任、定规则的人",{guan:2,pivot:1,gradual:1}]
+]},
+{
+q:"你怎么看“绕路”这件事？",
+o:[
+["能不绕就不绕，效率最重要",{cai:2,early:2}],
+["很多绕路其实是在积累",{yin:2,late:2}],
+["绕路之后更容易看清自己",{shi:1,bi:1,reboot:2}],
+["重要的是最后把局面扳回来",{guan:1,bi:1,pivot:2}]
+]},
+{
+q:"如果一个机会需要你离开熟悉环境，你会：",
+o:[
+["越陌生越想试",{bi:2,shi:1,reboot:2}],
+["只要回报够大就去",{cai:2,early:2}],
+["先把信息和退路准备好",{yin:2,late:2}],
+["如果平台足够稳定就去",{guan:2,gradual:2}]
+]},
+{
+q:"回头看过去几年，你觉得自己更像：",
+o:[
+["很早就开始往前冲的人",{cai:1,bi:1,early:2}],
+["一点点把自己搭起来的人",{yin:2,gradual:1,late:1}],
+["被某件事逼着重新开始的人",{guan:1,bi:1,pivot:2}],
+["反复推倒重来，但越来越像自己的人",{shi:1,bi:1,reboot:2}]
+]}
+];
+
+const profiles = {
+early:{
+title:"少年早开型",
+sub:"你的优势，往往比别人更早显出来",
+quote:"你的人生不是靠“熬”才开始，而是要学会把早来的机会真正接住。",
+metrics:[["早期开花",92],["中期爆发",76],["长期后劲",71],["重新开始",64]],
+archetype:"财型＋食伤型意象",
+archText:"你更容易对机会、结果和外部反馈产生快速反应，也愿意通过表达、行动与尝试提前占到位置。真正的课题不是“什么时候开始”，而是不要太早把第一条路当成唯一答案。",
+timeline:[
+["18—24岁","试跑期","容易较早接触机会、形成优势，也可能因为正反馈来得太早而快速定型。"],
+["25—30岁","校准期","开始重新判断：早年的优势，哪些值得长期投入，哪些只是阶段性领先。"],
+["30—35岁","升级期","如果完成过一次方向校准，这一阶段更容易把“早开”转成稳定的能力与资源。"],
+["35岁以后","复利期","真正拉开差距的，不再是起步早，而是能否把优势做深、做久。"]
+],
+switchTitle:"别把“先发优势”变成“过早定型”",
+switchText:"你真正的突破，往往来自一次主动升级：把过去有效的方法重新拆掉，再建立更成熟的版本。"
+},
+gradual:{
+title:"渐入佳境型",
+sub:"你不是突然爆发，而是越走越稳",
+quote:"你真正的优势，不在第一眼惊艳，而在于持续走下去以后越来越难被替代。",
+metrics:[["早期开花",58],["中期爆发",82],["长期后劲",90],["重新开始",61]],
+archetype:"印型＋官杀型意象",
+archText:"你更偏向先建立秩序、能力和判断，再逐步放大成果。你不一定抢第一波机会，但一旦进入适合自己的环境，成长往往更稳定。",
+timeline:[
+["18—24岁","打底期","容易把时间花在学习、适应和建立基本能力上，表面未必特别亮眼。"],
+["25—30岁","起稳期","开始找到更适合自己的位置，能力和现实回报逐渐对得上。"],
+["30—35岁","放大期","前面积累开始形成复利，更容易获得稳定的认可、收入或身份提升。"],
+["35岁以后","稳升期","越往后越依赖判断力和长期积累，而不是短期运气。"]
+],
+switchTitle:"持续做对的事，比频繁重启更重要",
+switchText:"你的人生开关不是突然翻桌，而是把一个真正适合自己的方向做得足够久。"
+},
+pivot:{
+title:"中途翻盘型",
+sub:"你的人生，常在一次重选之后突然打开",
+quote:"你的优势不是很早知道答案，而是越来越知道什么不适合自己。",
+metrics:[["早期开花",42],["中期爆发",94],["长期后劲",86],["重新开始",91]],
+archetype:"比劫型＋官杀型意象",
+archText:"你身上同时有“被压力逼出能力”和“关键时刻重新选择”的倾向。人生容易在某个阶段发生一次明显重构：换方向、换环境、换身份，之后反而更容易起势。",
+timeline:[
+["18—24岁","探索期","容易经历尝试、比较和不确定，还没有完全确定长期路线。"],
+["25—30岁","筛选期","开始明显意识到：不是所有稳定，都值得留下。"],
+["30—35岁","第一轮明显发力期","更容易出现换赛道、发展副业、能力变现、换环境或重新规划生活。"],
+["35岁以后","复利期","你前面看似零散的经历，会逐渐连成一条更清晰的能力线。"]
+],
+switchTitle:"主动结束已经不适合你的东西",
+switchText:"你真正进入下一阶段的时刻，往往不是“再坚持一下”，而是承认这条路已经不适合，然后换环境、换方法、换身份。"
+},
+late:{
+title:"大器晚成型",
+sub:"你的牌，要到后面才慢慢发完",
+quote:"你不是起步晚，你只是更需要时间，把能力、判断和底气一起长出来。",
+metrics:[["早期开花",34],["中期爆发",72],["长期后劲",96],["重新开始",66]],
+archetype:"印型＋财型意象",
+archText:"你更擅长长期吸收、观察、积累，再把能力逐步兑换成现实成果。年轻阶段可能不抢眼，但随着经验、资源和判断力增加，优势会越来越明显。",
+timeline:[
+["18—24岁","吸收期","容易把更多时间放在学习、适应和积累，结果感没有那么强。"],
+["25—30岁","成形期","开始知道自己真正擅长什么，也更能分辨哪些机会值得投入。"],
+["30—35岁","兑现期","前期积累逐渐转化为更稳定的收入、位置或选择权。"],
+["35岁以后","优势期","后劲开始成为你的核心竞争力，越往后越知道怎样把牌打好。"]
+],
+switchTitle:"别用别人的速度，催自己的节奏",
+switchText:"你的真正开关是长期复利。比起追赶“别人已经做到哪一步”，持续把自己的能力做深更重要。"
+},
+reboot:{
+title:"多次重启型",
+sub:"你的人生不是直线上升，而是一轮轮更新版本",
+quote:"对你来说，推倒重来不一定是失败，很多时候它就是升级方式。",
+metrics:[["早期开花",61],["中期爆发",84],["长期后劲",80],["重新开始",97]],
+archetype:"比劫型＋食伤型意象",
+archText:"你对自由度、自主选择和新鲜感的需求更高。人生可能出现不止一次明显转向，但每次重启都在帮你淘汰不合适的版本，逐渐靠近真正适合自己的活法。",
+timeline:[
+["18—24岁","第一次试错","容易尝试不同方向，变化感比同龄人更明显。"],
+["25—30岁","第一次重构","开始主动结束某些旧路径，重新建立自己的生活或工作方式。"],
+["30—35岁","第二次升级","更容易把过去的多段经历重新组合，形成新的能力与选择。"],
+["35岁以后","版本稳定","真正的稳定，不是再也不变，而是你越来越知道什么值得保留。"]
+],
+switchTitle:"允许自己换版本，但别每次都从零开始",
+switchText:"你最重要的能力不是“重启”，而是把每次重启留下的经验、资源和技能继续带到下一阶段。"
+}
+};
+
+const dynNames = {
+yin:["印型动力","积累、学习、观察、蓄势、慢热"],
+shi:["食伤型动力","表达、创造、试错、输出、自由"],
+cai:["财型动力","现实、资源、机会、效率、兑现"],
+guan:["官杀型动力","目标、规则、压力、责任、竞争"],
+bi:["比劫型动力","自主、竞争、行动、破局、重新开始"]
+};
+
+let idx=0;
+let scores={yin:0,shi:0,cai:0,guan:0,bi:0,early:0,gradual:0,pivot:0,late:0,reboot:0};
+
+function startQuiz(){
+  document.getElementById("screen-home").classList.add("hidden");
+  document.getElementById("screen-quiz").classList.remove("hidden");
+  idx=0;
+  scores={yin:0,shi:0,cai:0,guan:0,bi:0,early:0,gradual:0,pivot:0,late:0,reboot:0};
+  renderQ();
+}
+function renderQ(){
+  const item=questions[idx];
+  document.getElementById("qIndex").textContent=`第 ${idx+1} 题`;
+  document.getElementById("progressBar").style.width=`${(idx/questions.length)*100}%`;
+  document.getElementById("qText").textContent=item.q;
+  const box=document.getElementById("options");
+  box.innerHTML="";
+  item.o.forEach((op,i)=>{
+    const b=document.createElement("button");
+    b.className="option";
+    b.innerHTML=`<b>${String.fromCharCode(65+i)}</b>${op[0]}`;
+    b.onclick=()=>choose(op[1]);
+    box.appendChild(b);
+  });
+}
+function choose(payload){
+  Object.keys(payload).forEach(k=>scores[k]=(scores[k]||0)+payload[k]);
+  idx++;
+  if(idx<questions.length){ renderQ(); window.scrollTo({top:0,behavior:"smooth"}); }
+  else showResult();
+}
+function normalizeTo100(entries){
+  const total = entries.reduce((sum, [,v]) => sum + v, 0);
+  if(total <= 0){
+    return entries.map(([k], i) => [k, i === 0 ? 100 : 0]);
+  }
+  const exact = entries.map(([k,v]) => [k, (v/total)*100]);
+  const floored = exact.map(([k,v]) => [k, Math.floor(v), v - Math.floor(v)]);
+  let used = floored.reduce((sum, [,v]) => sum + v, 0);
+  let remain = 100 - used;
+  floored.sort((a,b) => b[2] - a[2]);
+  for(let i=0; i<remain; i++){
+    floored[i % floored.length][1] += 1;
+  }
+  const resultMap = Object.fromEntries(floored.map(([k,v]) => [k,v]));
+  return entries.map(([k]) => [k, resultMap[k]]);
+}
+function showResult(){
+  document.getElementById("screen-quiz").classList.add("hidden");
+  document.getElementById("screen-result").classList.remove("hidden");
+  const typeKeys=["early","gradual","pivot","late","reboot"];
+  const type=typeKeys.sort((a,b)=>scores[b]-scores[a])[0];
+  const p=profiles[type];
+  window.currentType=type;
+
+  document.getElementById("resultTitle").textContent=p.title;
+  document.getElementById("resultSub").textContent=p.sub;
+  document.getElementById("resultQuote").textContent=p.quote;
+
+  const metrics=document.getElementById("metrics");
+  metrics.innerHTML="";
+  p.metrics.forEach(([name,val])=>{
+    metrics.innerHTML += `<div class="metric">
+      <div class="metric-top"><span>${name}</span><b>${val} / 100</b></div>
+      <div class="bar"><i style="width:${val}%"></i></div>
+    </div>`;
+  });
+
+  const dynKeys=["yin","shi","cai","guan","bi"];
+  const rawDyn = dynKeys.map(k => [k, Math.max(0, scores[k] || 0)]);
+  const arr = normalizeTo100(rawDyn).sort((a,b)=>b[1]-a[1]);
+  window.currentDyn=arr;
+
+  const dyn=document.getElementById("dynamics");
+  dyn.innerHTML="";
+  arr.forEach(([k,v])=>{
+    dyn.innerHTML += `<div class="dyn">
+      <b>${dynNames[k][0]}</b><b>${v}%</b>
+      <small>${dynNames[k][1]}</small>
+    </div>`;
+  });
+
+
+  document.getElementById("archetype").innerHTML=
+    `<b style="font-size:20px">${p.archetype}</b>
+     <p style="margin:8px 0 0;color:var(--sub)">${p.archText}</p>`;
+
+  const tl=document.getElementById("timeline");
+  tl.innerHTML="";
+  p.timeline.forEach(([age,title,text])=>{
+    tl.innerHTML += `<div class="time-item">
+      <b>${age}｜${title}</b><span>${text}</span>
+    </div>`;
+  });
+
+  document.getElementById("switchTitle").textContent=p.switchTitle;
+  document.getElementById("switchText").textContent=p.switchText;
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function restart(){
+  document.getElementById("screen-result").classList.add("hidden");
+  document.getElementById("screen-home").classList.remove("hidden");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function roundRect(ctx,x,y,w,h,r,fill){
+  ctx.beginPath();
+  ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r);
+  ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath();
+  ctx.fillStyle=fill; ctx.fill();
+}
+function wrapText(ctx,text,x,y,maxWidth,lineHeight){
+  let line="", yy=y;
+  for(const ch of text){
+    const test=line+ch;
+    if(ctx.measureText(test).width>maxWidth && line){
+      ctx.fillText(line,x,yy); line=ch; yy+=lineHeight;
+    }else line=test;
+  }
+  if(line) ctx.fillText(line,x,yy);
+  return yy;
+}
+function makeCard(){
+  const c=document.getElementById("shareCanvas"),ctx=c.getContext("2d");
+  const p=profiles[window.currentType];
+  ctx.clearRect(0,0,c.width,c.height);
+  ctx.fillStyle="#f7f2e8"; ctx.fillRect(0,0,c.width,c.height);
+  roundRect(ctx,70,70,940,1300,42,"#fffdf8");
+
+  ctx.fillStyle="#756f65";ctx.font='32px "PingFang SC","Microsoft YaHei",sans-serif';
+  ctx.fillText("个人解读 · 01",120,150);
+
+  ctx.fillStyle="#25231f";ctx.font='bold 66px "PingFang SC","Microsoft YaHei",sans-serif';
+  ctx.fillText("你的人生，什么时候开始发力？",120,250);
+
+  ctx.fillStyle="#7f352d";ctx.font='bold 82px "PingFang SC","Microsoft YaHei",sans-serif';
+  ctx.fillText(p.title,120,390);
+
+  ctx.fillStyle="#756f65";ctx.font='34px "PingFang SC","Microsoft YaHei",sans-serif';
+  wrapText(ctx,p.sub,120,455,820,52);
+
+  roundRect(ctx,120,540,840,170,24,"#f7efe7");
+  ctx.fillStyle="#25231f";ctx.font='bold 40px "PingFang SC","Microsoft YaHei",sans-serif';
+  wrapText(ctx,p.quote,160,600,760,56);
+
+  ctx.fillStyle="#25231f";ctx.font='bold 40px "PingFang SC","Microsoft YaHei",sans-serif';
+  ctx.fillText("你的五类动力构成",120,800);
+  ctx.fillStyle="#756f65";ctx.font='28px "PingFang SC","Microsoft YaHei",sans-serif';
+  ctx.fillText("构成占比 · 合计100%",120,842);
+
+  const top3=window.currentDyn.slice(0,3);
+  top3.forEach(([k,v],i)=>{
+    const y=905+i*105;
+    ctx.fillStyle="#25231f";ctx.font='bold 34px "PingFang SC","Microsoft YaHei",sans-serif';
+    ctx.fillText(dynNames[k][0],120,y);
+    ctx.fillStyle="#7f352d";ctx.fillText(v+"%",820,y);
+    ctx.fillStyle="#eadfce";ctx.fillRect(120,y+22,760,14);
+    ctx.fillStyle="#bd8d56";ctx.fillRect(120,y+22,760*(v/100),14);
+  });
+
+  ctx.fillStyle="#25231f";ctx.font='bold 38px "PingFang SC","Microsoft YaHei",sans-serif';
+  ctx.fillText("你的翻盘开关",120,1215);
+  ctx.fillStyle="#7f352d";ctx.font='bold 42px "PingFang SC","Microsoft YaHei",sans-serif';
+  wrapText(ctx,p.switchTitle,120,1270,800,54);
+
+  const a=document.createElement("a");
+  a.download=`个人解读_${p.title}.png`;
+  a.href=c.toDataURL("image/png");
+  a.click();
+}
+</script>
+</body>
+</html>
