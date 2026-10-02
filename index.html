@@ -183,7 +183,7 @@ canvas{display:none}
 
   <section id="screen-access" class="hero">
     <div class="card">
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><div class="brand">个人解读 · 01</div><div id="accessBadge" class="tag" style="margin:0">已解锁</div></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><div class="brand">个人解读 · 01</div><div id="accessBadge" class="tag" style="margin:0">待解锁</div></div>
       <h1>输入你的<br>个人解读码</h1>
       <p>购买后会收到一组访问码。输入后即可进入完整内容。</p>
       <div style="margin:18px 0 10px">
@@ -193,11 +193,11 @@ canvas{display:none}
       </div>
       <div id="accessError" style="min-height:22px;color:#a13f35;font-size:13px;margin:4px 0 10px"></div>
       <button class="btn" onclick="verifyAccessCode()">验证并进入 →</button>
-      <div class="note">访问资格会保存在当前浏览器中。<br>体验码：DEMO-2026</div>
+      <div class="note">请使用购买后收到的访问码。<br>验证后即可开始测试。</div>
     </div>
   </section>
 
-  <section id="screen-home" class="hidden" class="hero">
+  <section id="screen-home" class="hidden hero">
     <div class="card">
       <div class="brand">个人解读 · 01</div>
       <h1>你的人生，<br>什么时候开始真正发力？</h1>
@@ -304,9 +304,13 @@ async function verifyAccessCode(){
       err.textContent = "访问码不正确，请检查后再试。";
       return;
     }
-    localStorage.setItem("jd01_access_granted","1");
-    localStorage.setItem("jd01_access_hash",h);
-    localStorage.setItem("jd01_access_time",String(Date.now()));
+    try{
+      localStorage.setItem("jd01_access_granted","1");
+      localStorage.setItem("jd01_access_hash",h);
+      localStorage.setItem("jd01_access_time",String(Date.now()));
+    }catch(storageError){
+      // A blocked browser store must not prevent a valid buyer from entering.
+    }
     openUnlockedHome();
   }catch(e){
     err.textContent = "当前浏览器无法完成验证，请换用较新的浏览器。";
@@ -329,8 +333,12 @@ document.addEventListener("DOMContentLoaded",()=>{
     });
     input.addEventListener("keydown",(e)=>{ if(e.key==="Enter") verifyAccessCode(); });
   }
-  if(localStorage.getItem("jd01_access_granted")==="1"){
-    openUnlockedHome();
+  try{
+    if(localStorage.getItem("jd01_access_granted")==="1"){
+      openUnlockedHome();
+    }
+  }catch(storageError){
+    // The buyer can still enter the shared code without persistent storage.
   }
 });
 
